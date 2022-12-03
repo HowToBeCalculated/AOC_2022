@@ -33,9 +33,6 @@ class RPS_Choice:
     def get_rps_type(self) -> PlayerRPS:
         return self.same
 
-    def pick_score(self, determined_result: GamePoints) -> int:
-        return self.same.value + determined_result.value
-
     def determine_score(self, player_move: PlayerRPS) -> int:
         score = self.same.value
 
