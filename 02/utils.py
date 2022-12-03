@@ -6,6 +6,7 @@ class GamePoints(Enum):
     DRAW: int = 3
     LOSE: int = 0
 
+
 class PlayerRPS(Enum):
     ROCK: int = 1
     PAPER: int = 2
@@ -60,6 +61,7 @@ class RPS_Choice:
                 score += self.win.value
 
         return score
+
 
 class Rock(RPS_Choice):
     def __init__(self):

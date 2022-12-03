@@ -20,12 +20,14 @@ PLAYER_DETERMINE_RESULT_MAP = {
     "Z": GamePoints.WIN,
 }
 
+
 def read_02_input(file_name: str =  "02_input.txt") -> list[tuple[str, str]]:
 
     with open("02_input.txt", "r") as f:
         all_lines = f.read().splitlines()
 
     return list(map(lambda x: x.split(" "), all_lines))
+
 
 def pt_1_scoring(actions: list[tuple[str, str]]) -> int:
     score = 0
@@ -37,6 +39,7 @@ def pt_1_scoring(actions: list[tuple[str, str]]) -> int:
 
     return score
 
+
 def pt_2_scoring(actions: list[tuple[str, str]]) -> int:
     score = 0
 
@@ -47,6 +50,7 @@ def pt_2_scoring(actions: list[tuple[str, str]]) -> int:
         score += opponent_move.determine_opponents_score(expected_result)
 
     return score
+
 
 if __name__ == "__main__":
     actions = read_02_input()
