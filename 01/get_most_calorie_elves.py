@@ -10,6 +10,7 @@ def get_top_x_elves_with_most_calories(
 
     while list_of_calories:
         next_cal = list_of_calories.pop()
+        print(next_cal)
         if next_cal:
             weight += int(next_cal)
         else:
