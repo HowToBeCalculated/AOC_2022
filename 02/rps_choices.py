@@ -37,13 +37,15 @@ class RPS_Choice:
         return self.same.value + determined_result.value
 
     def determine_score(self, player_move: PlayerRPS) -> int:
+        score = self.same.value
+
         match player_move:
             case self.win:
-                return self.pick_score(GamePoints.WIN)
+                score += GamePoints.WIN.value
             case self.same:
-                return self.pick_score(GamePoints.DRAW)
+                score += GamePoints.DRAW.value
             case self.lose:
-                return self.pick_score(GamePoints.LOSE)
+                score += GamePoints.LOSE.value
 
         return score
 
@@ -52,12 +54,13 @@ class RPS_Choice:
 
         match result:
             case GamePoints.WIN:
-                return score + self.lose.value
+                score += self.lose.value
             case GamePoints.DRAW:
-                return score + self.same.value
+                score += self.same.value
             case GamePoints.LOSE:
-                return score + self.win.value
+                score += self.win.value
 
+        return score
 
 class Rock(RPS_Choice):
     def __init__(self):

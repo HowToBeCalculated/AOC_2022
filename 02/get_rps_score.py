@@ -1,5 +1,3 @@
-from typing import Generator
-
 from rps_choices import (
     GamePoints,
     Rock,
