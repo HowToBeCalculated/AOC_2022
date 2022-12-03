@@ -1,6 +1,5 @@
 from enum import Enum
 
-LOSE_PTS, DRAW_PTS, WIN_PTS = (0, 3, 6)
 
 class GamePoints(Enum):
     WIN: int = 6

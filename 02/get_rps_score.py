@@ -1,4 +1,4 @@
-from rps_choices import (
+from utils import (
     GamePoints,
     Rock,
     Paper,
