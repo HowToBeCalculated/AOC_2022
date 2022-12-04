@@ -17,14 +17,10 @@ def get_single_rucksack_shared_item_priority(all_rucksacks: list[str]) -> int:
 
 def get_multiple_rucksack_shared_item_priority(all_rucksacks: list[str], n: int = 3) -> int:
     running_priority = 0
-    iter_rucksacks = all_rucksacks[:]
+    iter_rucksacks = map(lambda x: set(x), all_rucksacks)
 
-    while iter_rucksacks:
-        rucksacks_in_question, iter_rucksacks = iter_rucksacks[:n], iter_rucksacks[n:]
-        shared_elements = set(rucksacks_in_question[0])
-        for i in range(1, n):
-            shared_elements = shared_elements.intersection(set(rucksacks_in_question[i]))
-
+    while (rucksack := next(iter_rucksacks, None)):
+        shared_elements = rucksack.intersection(*(next(iter_rucksacks, set()) for _ in range(n - 1)))
         running_priority += PRIORITY_MAP[shared_elements.pop()]
 
     return running_priority
