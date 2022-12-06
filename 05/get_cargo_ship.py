@@ -24,16 +24,17 @@ def find_separator(raw_cargo_data: list[str]) -> int:
 def convert_to_cargo_map_and_directions(
     raw_cargo_data: list[str]
 ) -> tuple[dict[int, list[str]], list[CargoDirection]]:
+
     separator = find_separator(raw_cargo_data)
 
     cargo_map = defaultdict(list)
 
-    for cargo in raw_cargo_data[separator - 1::-1]:
+    for cargo in raw_cargo_data[separator-1::-1]:
         for index, item in enumerate(cargo[1::4], 1):
             if item != " ":
                 cargo_map[index].append(item)
 
-    return (cargo_map, list(map(extract_direction, raw_cargo_data[separator + 2:])))
+    return (cargo_map, list(map(extract_direction, raw_cargo_data[separator+2:])))
 
 
 def move_cargo(
