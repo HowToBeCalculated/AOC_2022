@@ -1,8 +1,8 @@
-from utils_07 import Tree
+from utils_07 import Node
 
 
-def calculate_full_terminal_log_tree(terminal_logs: list[str]) -> Tree:
-    root = Tree("root")
+def calculate_full_terminal_log_Node(terminal_logs: list[str]) -> Node:
+    root = Node("root")
     cwd = root
 
     for log in (terminal_logs):
@@ -31,7 +31,7 @@ def calculate_full_terminal_log_tree(terminal_logs: list[str]) -> Tree:
 
 
 def calculate_space_dedicated_to_directories_under_x_space(
-    root: Tree,
+    root: Node,
     max_space_per_directory: int = 100_000,
 ) -> int:
 
@@ -55,7 +55,7 @@ def calculate_space_dedicated_to_directories_under_x_space(
 
 
 def calculate_smallest_directory_space_to_delete(
-    root: Tree,
+    root: Node,
     needed_disk_space: int = 30_000_000,
     total_disk_space: int = 70_000_000,
 ) -> int:
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     with open("07_input.txt", "r") as f:
         terminal_logs = f.read().splitlines()
 
-    root = calculate_full_terminal_log_tree(terminal_logs)
+    root = calculate_full_terminal_log_Node(terminal_logs)
 
     applicable_dir_space = calculate_space_dedicated_to_directories_under_x_space(root)
     smallest_directory_space_to_delete = calculate_smallest_directory_space_to_delete(root)
