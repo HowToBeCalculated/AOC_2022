@@ -4,7 +4,6 @@ def get_index_after_market_from_elf_signal(
     unique_chars_that_mark_start: int,
 ) -> str:
     i = 0
-
     while i < len(signal):
         start, end = i, i + unique_chars_that_mark_start
 
@@ -12,7 +11,6 @@ def get_index_after_market_from_elf_signal(
             return end
 
         i += 1
-
     return -1
 
 
