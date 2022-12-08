@@ -1,7 +1,7 @@
 from utils_07 import Node
 
 
-def calculate_full_terminal_log_Node(terminal_logs: list[str]) -> Node:
+def calculate_full_terminal_log_tree(terminal_logs: list[str]) -> Node:
     root = Node("root")
     cwd = root
 
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     with open("07_input.txt", "r") as f:
         terminal_logs = f.read().splitlines()
 
-    root = calculate_full_terminal_log_Node(terminal_logs)
+    root = calculate_full_terminal_log_tree(terminal_logs)
 
     applicable_dir_space = calculate_space_dedicated_to_directories_under_x_space(root)
     smallest_directory_space_to_delete = calculate_smallest_directory_space_to_delete(root)
